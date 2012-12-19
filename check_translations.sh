@@ -23,5 +23,5 @@ diff -u "$USED_KEYS_FILE" "$TRANSLATED_KEYS_FILE" > "$DIFF_FILE"
 echo "Unused translations:"
 cat $DIFF_FILE | egrep '^(\+)\w' | cut -c2- | sed -E 's/(.*)/	[\1]/g'
 
-cat $DIFF_FILE | egrep '^(\-)\w' | cut -c2- | sed -E 's/(.*)/	[\1]/g' >> $LANGUAGE_FILE
+cat $DIFF_FILE | egrep '^(\-)\w' | cut -c2- | sed -E 's/(.*)/	[\1]/g' >> "$LANGUAGE_FILE"
 echo "\nAdded missing translations to $LANGUAGE_FILE"
