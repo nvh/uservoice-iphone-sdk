@@ -25,3 +25,8 @@ cat $DIFF_FILE | egrep '^(\+)\w' | cut -c2- | sed -E 's/(.*)/	[\1]/g'
 
 cat $DIFF_FILE | egrep '^(\-)\w' | cut -c2- | sed -E 's/(.*)/	[\1]/g' >> "$LANGUAGE_FILE"
 echo "\nAdded missing translations to $LANGUAGE_FILE"
+
+#Cleanup
+rm $TRANSLATED_KEYS_FILE
+rm $USED_KEYS_FILE
+rm $DIFF_FILE
