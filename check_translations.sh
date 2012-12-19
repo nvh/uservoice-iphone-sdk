@@ -11,7 +11,7 @@ TEMP_DIR="/tmp"
 # Vars
 USED_KEYS_FILE=`mktemp "$TEMP_DIR/used_keys.XXXXX"`
 TRANSLATED_KEYS_FILE=`mktemp "$TEMP_DIR/translated_keys.XXXXX"`
-DIFF_FILE=`mktemp "$TEMP_DIR/translated_keys.XXXXX"`
+DIFF_FILE=`mktemp "$TEMP_DIR/diff_keys.XXXXX"`
 
 grep -Ir "NSLocalizedStringFromTable(@" "$SOURCE_ROOT/$CODE_DIR" | sed -E 's/.*NSLocalizedStringFromTable\(@"(([^"]|\\\")+).*/\1/g' |  sort | uniq > "$USED_KEYS_FILE"
 grep "[^\[]\[[^\[]" "$SOURCE_ROOT/$CODE_DIR/$LANGUAGE_FILE" | sed -E 's/.*\[(.*)\].*/\1/' | sort | uniq > "$TRANSLATED_KEYS_FILE"
